@@ -210,7 +210,7 @@ public class ExcelHandler {
 						
 						readConfig();
 						
-						Class<?> cls = Class.forName("test.java."+ClassName);
+						Class<?> cls = Class.forName("Flows."+ClassName);
 						Object obj = cls.newInstance();
 						java.lang.reflect.Method Meth =  obj.getClass().getMethod(FunctionName);
 						Meth.invoke(obj);

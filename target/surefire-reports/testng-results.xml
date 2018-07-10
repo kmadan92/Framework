@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Surefire suite" duration-ms="5954" started-at="2018-07-10T10:06:25Z" finished-at="2018-07-10T10:06:31Z">
+  <suite name="Surefire suite" duration-ms="6304" started-at="2018-07-10T10:26:57Z" finished-at="2018-07-10T10:27:03Z">
     <groups>
     </groups>
-    <test name="Surefire test" duration-ms="5954" started-at="2018-07-10T10:06:25Z" finished-at="2018-07-10T10:06:31Z">
+    <test name="Surefire test" duration-ms="6304" started-at="2018-07-10T10:26:57Z" finished-at="2018-07-10T10:27:03Z">
       <class name="test.java.MavenTest">
-        <test-method status="PASS" signature="f()[pri:0, instance:test.java.MavenTest@2d3fcdbd]" name="f" duration-ms="5911" started-at="2018-07-10T10:06:25Z" finished-at="2018-07-10T10:06:31Z">
+        <test-method status="PASS" signature="FirstTestCase()[pri:0, instance:test.java.MavenTest@2d3fcdbd]" name="FirstTestCase" duration-ms="6254" started-at="2018-07-10T10:26:57Z" finished-at="2018-07-10T10:27:03Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- f -->
+        </test-method> <!-- FirstTestCase -->
+        <test-method status="PASS" signature="SecondTestCase()[pri:0, instance:test.java.MavenTest@2d3fcdbd]" name="SecondTestCase" duration-ms="0" started-at="2018-07-10T10:27:03Z" finished-at="2018-07-10T10:27:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SecondTestCase -->
+        <test-method status="PASS" signature="ThirdTestCase()[pri:0, instance:test.java.MavenTest@2d3fcdbd]" name="ThirdTestCase" duration-ms="0" started-at="2018-07-10T10:27:03Z" finished-at="2018-07-10T10:27:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ThirdTestCase -->
       </class> <!-- test.java.MavenTest -->
     </test> <!-- Surefire test -->
   </suite> <!-- Surefire suite -->
