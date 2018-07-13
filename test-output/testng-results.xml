@@ -1,25 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="5637" started-at="2018-07-10T10:31:18Z" finished-at="2018-07-10T10:31:24Z">
+  <suite name="Suite" duration-ms="33927" started-at="2018-07-13T08:38:46Z" finished-at="2018-07-13T08:39:20Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="5637" started-at="2018-07-10T10:31:18Z" finished-at="2018-07-10T10:31:24Z">
-      <class name="test.java.MavenTest">
-        <test-method status="PASS" signature="FirstTestCase()[pri:0, instance:test.java.MavenTest@1bce4f0a]" name="FirstTestCase" duration-ms="5567" started-at="2018-07-10T10:31:18Z" finished-at="2018-07-10T10:31:24Z">
+    <test name="ExampleTest" duration-ms="33927" started-at="2018-07-13T08:38:46Z" finished-at="2018-07-13T08:39:20Z">
+      <class name="Flows.LoginLogout">
+        <test-method status="PASS" signature="InitializeTest()[pri:0, instance:Flows.LoginLogout@4dfa3a9d]" name="InitializeTest" is-config="true" duration-ms="4598" started-at="2018-07-13T08:38:46Z" finished-at="2018-07-13T08:38:51Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- FirstTestCase -->
-        <test-method status="PASS" signature="SecondTestCase()[pri:0, instance:test.java.MavenTest@1bce4f0a]" name="SecondTestCase" duration-ms="2" started-at="2018-07-10T10:31:24Z" finished-at="2018-07-10T10:31:24Z">
+        </test-method> <!-- InitializeTest -->
+        <test-method status="PASS" signature="DemoQA()[pri:0, instance:Flows.LoginLogout@4dfa3a9d]" name="DemoQA" duration-ms="8379" started-at="2018-07-13T08:38:51Z" finished-at="2018-07-13T08:38:59Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SecondTestCase -->
-        <test-method status="PASS" signature="ThirdTestCase()[pri:0, instance:test.java.MavenTest@1bce4f0a]" name="ThirdTestCase" duration-ms="2" started-at="2018-07-10T10:31:24Z" finished-at="2018-07-10T10:31:24Z">
+        </test-method> <!-- DemoQA -->
+        <test-method status="PASS" signature="EndTest()[pri:0, instance:Flows.LoginLogout@4dfa3a9d]" name="EndTest" is-config="true" duration-ms="2" started-at="2018-07-13T08:38:59Z" finished-at="2018-07-13T08:38:59Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ThirdTestCase -->
-      </class> <!-- test.java.MavenTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- EndTest -->
+        <test-method status="PASS" signature="InitializeTest()[pri:0, instance:Flows.LoginLogout@4dfa3a9d]" name="InitializeTest" is-config="true" duration-ms="3237" started-at="2018-07-13T08:38:59Z" finished-at="2018-07-13T08:39:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- InitializeTest -->
+        <test-method status="PASS" signature="DemoQARegister()[pri:0, instance:Flows.LoginLogout@4dfa3a9d]" name="DemoQARegister" duration-ms="17649" started-at="2018-07-13T08:39:02Z" finished-at="2018-07-13T08:39:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DemoQARegister -->
+        <test-method status="PASS" signature="EndTest()[pri:0, instance:Flows.LoginLogout@4dfa3a9d]" name="EndTest" is-config="true" duration-ms="0" started-at="2018-07-13T08:39:20Z" finished-at="2018-07-13T08:39:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- EndTest -->
+      </class> <!-- Flows.LoginLogout -->
+    </test> <!-- ExampleTest -->
+  </suite> <!-- Suite -->
 </testng-results>

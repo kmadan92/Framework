@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]">
+  <test thread-count="5" name="ExampleTest(failed)">
+    <classes>
+      <class name="Flows.LoginLogout2">
+        <methods>
+          <include name="ThirdTestCase"/>
+        </methods>
+      </class> <!-- Flows.LoginLogout2 -->
+      <class name="Flows.LoginLogout">
+        <methods>
+          <include name="FirstTestCase"/>
+          <include name="InitializeTest"/>
+          <include name="SecondTestCase"/>
+        </methods>
+      </class> <!-- Flows.LoginLogout -->
+    </classes>
+  </test> <!-- ExampleTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->

@@ -11,6 +11,9 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import Utilities.BrowserConfig;
 import Utilities.ExcelHandler;
 
 
@@ -25,10 +28,13 @@ public class KeywordRepository extends ExcelHandler
 		try
 		{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(currentObject))).click();
+		System.out.println("Object "+currentObject+" Found");
+		getscreenshot();
 		}
 		catch(Exception e)
 		{
 			System.out.println("Keyword Click Failed");
+			System.out.println("Object "+currentObject+" Not Found");
 			e.printStackTrace();
 		}
 		
@@ -41,10 +47,13 @@ public class KeywordRepository extends ExcelHandler
 		Thread.sleep(3000);
 		JavascriptExecutor executor = (JavascriptExecutor)driver;
 		executor.executeScript("arguments[0].click()", currentObject);
+		System.out.println("Object "+currentObject+" Found");
+		getscreenshot();
 		}
 		catch(Exception e)
 		{
 			System.out.println("Keyword ClickByJS Failed");
+			System.out.println("Object "+currentObject+" Not Found");
 			e.printStackTrace();
 		}
 	}
@@ -54,10 +63,14 @@ public class KeywordRepository extends ExcelHandler
 		try
 		{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(currentObject))).sendKeys(value);
+		System.out.println("Object "+currentObject+" Found");
+		System.out.println("Value "+value+" Populated");
+		getscreenshot();
 		}
 		catch(Exception e)
 		{
 			System.out.println("Keyword setTextField Failed");
+			System.out.println("Object "+currentObject+" Not Found OR Value "+value+" Not Populated");
 			e.printStackTrace();
 		}
 	}
@@ -66,14 +79,16 @@ public class KeywordRepository extends ExcelHandler
 	{
 		try
 		{
-
+		readConfig();
 		driver.get(ExcelHandler.URL);
 		driver.manage().window().maximize();
-	
+		System.out.println(ExcelHandler.URL+" Opened");
+		getscreenshot();
 		}
 		catch(Exception e)
 		{
 			System.out.println("Keyword loadURL Failed");
+			System.out.println(ExcelHandler.URL+" Failed");
 			e.printStackTrace();
 		}
 		return ExcelHandler.URL;
@@ -84,10 +99,13 @@ public class KeywordRepository extends ExcelHandler
 		try
 		{
 		driver.get(URL);
+		System.out.println(URL+" Opened");
+		getscreenshot();
 		}
 		catch(Exception e)
 		{
 			System.out.println("Keyword NavigateUrl Failed");
+			System.out.println(URL+" Failed");
 			e.printStackTrace();
 		}
 		
@@ -99,6 +117,7 @@ public class KeywordRepository extends ExcelHandler
 		try
 		{
 			CurURL = driver.getCurrentUrl();
+			getscreenshot();
 		}
 		catch(Exception e)
 		{
@@ -162,7 +181,7 @@ public class KeywordRepository extends ExcelHandler
             
     }
 	
-	public static void getTextAssertion(String currentObject, String origValue, String keyword)
+	public static void getTextAssertion(String currentObject, String origValue)
 	{
 		String compareValue;
 		try
@@ -172,7 +191,7 @@ public class KeywordRepository extends ExcelHandler
 		if(compareValue.equals(origValue))
 		{
 			getscreenshot();
-			System.out.println("Step "+keyword+" Passed");
+			System.out.println("Object "+currentObject+" Assertion Successful");
 			ExitFlag=true;
 			TestStepStatus="PASS";
 		}
@@ -180,7 +199,7 @@ public class KeywordRepository extends ExcelHandler
 		else
 		{
 			getscreenshot();
-			System.out.println("Step "+keyword+" Failed");
+			System.out.println("Object "+currentObject+" Assertion Failed");
 			ExitFlag=false;
 			TestStepStatus="FAIL";
 		}

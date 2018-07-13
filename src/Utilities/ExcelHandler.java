@@ -10,6 +10,9 @@ import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell ;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -89,7 +92,7 @@ public class ExcelHandler {
 		String FileName = getThreadDataSheetName();
 		try {
 			String path = getPathCommon();
-			FileInputStream file = new FileInputStream(new File(path + "//Datafiles//" + FileName));
+			FileInputStream file = new FileInputStream(new File(path + "\\Datafiles\\" + FileName));
 
 			XSSFWorkbook workbook = new XSSFWorkbook(file);
 			XSSFSheet sheet = workbook.getSheet(sheetName);
@@ -164,6 +167,47 @@ public class ExcelHandler {
 		}
 	}
 	
+	
+	
+	@SuppressWarnings("resource")
+	public static String getBrowserFromEnvConfig(String sheetName, String parameter, int rowNum, int headerrow) {
+		String value = null;
+		
+		String FileName = getThreadDataSheetName();
+		try {
+			String path = getPathCommon();
+			FileInputStream file = new FileInputStream(new File(path + "//Config//" + FileName));
+
+			HSSFWorkbook workbook = new HSSFWorkbook(file);
+			HSSFSheet sheet = workbook.getSheet(sheetName);
+			int paramCol = -1;
+			Iterator<Cell> cellIterator = sheet.getRow(headerrow).cellIterator();
+			while (cellIterator.hasNext()) {
+				Cell cell = (Cell) cellIterator.next();
+				try {
+					if (cell.getStringCellValue().equals(parameter))
+						paramCol = cell.getColumnIndex();
+				} catch (Exception e) {
+				}
+			}
+			try {
+				value = sheet.getRow(rowNum).getCell(paramCol).getStringCellValue();
+			} catch (Exception e) {
+			}
+			file.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("Please verify the Data sheet, and the path where it is saved are correct");
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (URISyntaxException e1) {
+			e1.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return value;
+	}
+	
 	 public Map<String, String> readExecutor(String sheetName, String pathName, String fileName) throws Exception 
 		{
 			int R,C;
@@ -208,7 +252,6 @@ public class ExcelHandler {
 						driver = BrowserConfig.getBrowser(BrowserName);
 						wait = new WebDriverWait(driver, 60);
 						
-						readConfig();
 						
 						Class<?> cls = Class.forName("Flows."+ClassName);
 						Object obj = cls.newInstance();
@@ -244,7 +287,7 @@ public class ExcelHandler {
 	 
 	 
 	 @SuppressWarnings("rawtypes")
-	public Map readConfig() throws BiffException
+	public static Map readConfig() throws BiffException
 		{
 			String dir = System.getProperty("user.dir");
 			Map<String,String> configData=new HashMap<String,String>();
@@ -282,8 +325,6 @@ public class ExcelHandler {
 						{
 							Environment = configData.get("Environment");
 						    URL= configData.get("URL");
-						    
-						    System.out.println(URL);
 								   						
 						}
 											

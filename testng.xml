@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><suite name="Suite"><test name="ExampleTest" thread-count="1"><classes><class name="Flows.LoginLogout"><methods><include name="DemoQA"/><include name="DemoQARegister"/></methods></class></classes></test></suite>
