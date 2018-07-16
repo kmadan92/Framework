@@ -28,7 +28,7 @@ public class LoginLogout extends ExcelHandler {
 	@AfterMethod
 	public void EndTest()
 	{
-		
+		softAssertion.assertAll();
 	}
 	
   @Test

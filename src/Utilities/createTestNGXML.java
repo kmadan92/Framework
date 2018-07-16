@@ -40,11 +40,6 @@ public class createTestNGXML {
 	
 	public static void main(String args[]) throws ParserConfigurationException, BiffException, TransformerException
 	{
-//		XmlSuite xmlSuite = new XmlSuite();
-//		xmlSuite.setName("Suite");
-//		xmlSuite.setThreadCount(1);
-//		
-//		XmlTest xmlTest = new XmlTest(xmlSuite);
 		
 		String dir = System.getProperty("user.dir");
 		File inputFile=new File(dir+"\\" + "Config\\" + "Executor.xls");
@@ -62,10 +57,16 @@ public class createTestNGXML {
 		DocumentBuilder documentbuilder = documentbuilderfactory.newDocumentBuilder();
 		Document document = documentbuilder.newDocument();
 		
+		Element rootElementListener = document.createElement("listeners");
+		Element childElementListener = document.createElement("listener");
+		childElementListener.setAttribute("class-name", "Utilities.ExtentListener");
+		rootElementListener.appendChild(childElementListener);
+		
 		Element rootElementSuite = document.createElement("suite");
-		rootElementSuite.setAttribute("name", "Suite");
+		rootElementSuite.setAttribute("name", "RegressionSuite");
+		rootElementSuite.appendChild(rootElementListener);
 		Element rootElementTest = document.createElement("test");
-		rootElementTest.setAttribute("name", "ExampleTest");
+		rootElementTest.setAttribute("name", "RegressionTest");
 		rootElementTest.setAttribute("thread-count", "1");
 		Element rootElementClass = document.createElement("classes");
 		Element childElementClass = null ;
@@ -98,11 +99,6 @@ public class createTestNGXML {
 				{
 					if (hValue.equals("Yes"))
 					{
-//						Element rootElementParameter = document.createElement("parameter");
-						
-//						rootElementParameter.setAttribute("name", "Suite");
-//						rootElementParameter.setAttribute("value", "Value");
-//						rootElementSuite.appendChild(rootElementParameter);
 						
 						ClassMap.put(z, "Flows."+sheetData.get("Class"));
 						FunctionMap.put(z, sheetData.get("Function"));
@@ -154,14 +150,7 @@ public class createTestNGXML {
 					
 					tempClass = childElementClass.getAttribute("name");
 				}
-//				childElementClass = document.createElement("class");
-//				childElementClass.setAttribute("name", ClassMap.get(m+1));
-//				
-//				rootElementGroups = document.createElement("methods");
-//			
-//			
-//				rootInclude =  document.createElement("include");
-//				rootInclude.setAttribute("name", FunctionMap.get(m+1));
+
 				
 				rootElementSuite.appendChild(rootElementTest);
 				rootElementTest.appendChild(rootElementClass);

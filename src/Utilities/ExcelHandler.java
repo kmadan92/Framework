@@ -21,6 +21,8 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.asserts.SoftAssert;
+
 //import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
@@ -35,6 +37,7 @@ public class ExcelHandler {
 	public static WebDriver driver;
 	public static WebDriverWait wait; 
 	public static String Key,Value,FunctionName,ClassName,BrowserName, Environment, URL;
+	public static SoftAssert softAssertion = new SoftAssert();
 	
 	
 	public static String getPathCommon() throws URISyntaxException {

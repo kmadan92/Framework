@@ -1,17 +1,24 @@
 package Keywords;
 
+import static org.testng.Assert.assertTrue;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
+import org.junit.Rule;
+import org.junit.rules.ErrorCollector;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.asserts.Assertion;
+import org.testng.asserts.SoftAssert;
 
 import Utilities.BrowserConfig;
 import Utilities.ExcelHandler;
@@ -22,6 +29,7 @@ public class KeywordRepository extends ExcelHandler
 
 	public static boolean ExitFlag=false;
 	public static String TestStepStatus=null;
+	
 	
 	public static void Click(String currentObject)
 	{
@@ -36,6 +44,7 @@ public class KeywordRepository extends ExcelHandler
 			System.out.println("Keyword Click Failed");
 			System.out.println("Object "+currentObject+" Not Found");
 			e.printStackTrace();
+			Assert.assertTrue(false, "Assertion Inside Catch");
 		}
 		
 	}
@@ -55,6 +64,7 @@ public class KeywordRepository extends ExcelHandler
 			System.out.println("Keyword ClickByJS Failed");
 			System.out.println("Object "+currentObject+" Not Found");
 			e.printStackTrace();
+			Assert.assertTrue(false, "Assertion Inside Catch");
 		}
 	}
 	
@@ -72,6 +82,7 @@ public class KeywordRepository extends ExcelHandler
 			System.out.println("Keyword setTextField Failed");
 			System.out.println("Object "+currentObject+" Not Found OR Value "+value+" Not Populated");
 			e.printStackTrace();
+			Assert.assertTrue(false, "Assertion Inside Catch");
 		}
 	}
 	
@@ -90,6 +101,7 @@ public class KeywordRepository extends ExcelHandler
 			System.out.println("Keyword loadURL Failed");
 			System.out.println(ExcelHandler.URL+" Failed");
 			e.printStackTrace();
+			Assert.assertTrue(false, "Assertion Inside Catch");
 		}
 		return ExcelHandler.URL;
 	}
@@ -107,6 +119,7 @@ public class KeywordRepository extends ExcelHandler
 			System.out.println("Keyword NavigateUrl Failed");
 			System.out.println(URL+" Failed");
 			e.printStackTrace();
+			Assert.assertTrue(false, "Assertion Inside Catch");
 		}
 		
 	}
@@ -123,6 +136,7 @@ public class KeywordRepository extends ExcelHandler
 		{
 			System.out.println("Keyword getUrl Failed");
 			e.printStackTrace();
+			Assert.assertTrue(false, "Assertion Inside Catch");
 		}
 	return CurURL;
 	
@@ -168,7 +182,6 @@ public class KeywordRepository extends ExcelHandler
     				TestStepStatus="PASS";
             	}
 				
-				
 			} 
             catch (IOException e)
 			{
@@ -177,6 +190,7 @@ public class KeywordRepository extends ExcelHandler
 				e.printStackTrace();
 				ExitFlag=false;
 				TestStepStatus="FAIL";
+				softAssertion.assertTrue(false, "Assertion inside catch");
 			}
             
     }
@@ -202,6 +216,7 @@ public class KeywordRepository extends ExcelHandler
 			System.out.println("Object "+currentObject+" Assertion Failed");
 			ExitFlag=false;
 			TestStepStatus="FAIL";
+			softAssertion.assertTrue(false, "Assertion inside catch");
 		}
 		}catch(Exception e)
 		{
