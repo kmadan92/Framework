@@ -3,6 +3,7 @@ Utilities\TestEngine.class
 ObjectRepository\LoginPage.class
 Flows\LoginLogout2.class
 Utilities\ExtentListener.class
+Utilities\createTestNGXML.class
 test\java\MavenTest.class
 Utilities\BrowserConfig.class
 Flows\LoginLogout3.class

@@ -80,7 +80,7 @@ public class BrowserConfig {
 			//return new InternetExplorerDriver();
 		
 		case 3:
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\kamadan\\Documents\\SOM\\Regression\\Script Backup for Laptop Change\\POA_Workspace\\Framework\\Browser\\Chrome\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\kapilm\\Documents\\GitHub\\Framework\\Browser\\Chrome\\chromedriver.exe");
 //			DesiredCapabilities chromeCapabilities = DesiredCapabilities.chrome();
 //			chromeCapabilities.setCapability("headless", true);
 //			final ChromeOptions chromeOptions = new ChromeOptions();
